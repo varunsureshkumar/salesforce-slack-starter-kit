@@ -1,12 +1,12 @@
 /* eslint-disable no-console */
 // eslint-disable-next-line import/no-unresolved
 import pkg from '@slack/bolt';
-
-const { slackMessage } = require('../helpers/slackBot');
+// eslint-disable-next-line import/no-unresolved
+import pkg2 from '../helpers/slackBot';
 // import pkg2 from 'jsforce';
 
 const { App } = pkg;
-// const jsforce = pkg2;
+const { slackMessage } = pkg2;
 
 // Initializes your app with your bot token and signing secret
 const app = new App({
