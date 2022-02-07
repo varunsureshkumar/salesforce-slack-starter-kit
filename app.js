@@ -2,7 +2,7 @@
 // eslint-disable-next-line import/no-unresolved
 import pkg from '@slack/bolt';
 // eslint-disable-next-line import/no-unresolved
-import pkg2 from '../helpers/slackBot';
+import pkg2 from './..helpers/slackBot';
 // import pkg2 from 'jsforce';
 
 const { App } = pkg;
