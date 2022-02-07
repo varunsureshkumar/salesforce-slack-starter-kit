@@ -1,8 +1,10 @@
 /* eslint-disable no-console */
 // eslint-disable-next-line import/no-unresolved
 import pkg from '@slack/bolt';
+import pkg2 from 'jsforce';
 
 const { App } = pkg;
+const jsforce = pkg2;
 
 // Initializes your app with your bot token and signing secret
 const app = new App({
@@ -20,6 +22,14 @@ const app = new App({
 
 app.shortcut('who_am_i', async ({ shortcut, ack, client }) => {
   try {
+
+    const connection = new jsforce.Connection({
+        loginUrl = process.env.SF_LOGIN_URL,
+    });
+    const userInfo = await connection.login(
+        process.env.SF_USERNAME,
+        process.env.SF_PASSWD,
+    );
     // Acknowledge shortcut request
     await ack();
     // Call the views.open method using one of the built-in WebClients
@@ -40,7 +50,7 @@ app.shortcut('who_am_i', async ({ shortcut, ack, client }) => {
             type: 'section',
             text: {
               type: 'mrkdwn',
-              text: 'Hello!',
+              text: 'Logged in with user using userId ${userInfo.id}',
             },
           },
         ],

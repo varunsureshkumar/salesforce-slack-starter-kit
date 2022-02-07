@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/varunsureshkumar/salesforce-slack-starter-kit#readme",
   "dependencies": {
-    "@slack/bolt": "^3.9.0"
+    "@slack/bolt": "^3.9.0",
+    "jsforce": "^1.11.0"
   }
 }
