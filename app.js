@@ -22,13 +22,12 @@ const app = new App({
 
 app.shortcut('who_am_i', async ({ shortcut, ack, client }) => {
   try {
-
     const connection = new jsforce.Connection({
-        loginUrl = process.env.SF_LOGIN_URL,
+      loginUrl: process.env.SF_LOGIN_URL,
     });
     const userInfo = await connection.login(
-        process.env.SF_USERNAME,
-        process.env.SF_PASSWD,
+      process.env.SF_USERNAME,
+      process.env.SF_PASSWD,
     );
     // Acknowledge shortcut request
     await ack();
@@ -50,7 +49,7 @@ app.shortcut('who_am_i', async ({ shortcut, ack, client }) => {
             type: 'section',
             text: {
               type: 'mrkdwn',
-              text: 'Logged in with user using userId ${userInfo.id}',
+              text: `Logged in with user using userId ${userInfo.id}`,
             },
           },
         ],
