@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/varunsureshkumar/salesforce-slack-starter-kit/issues"
   },
-  "homepage": "https://github.com/varunsureshkumar/salesforce-slack-starter-kit#readme"
+  "homepage": "https://github.com/varunsureshkumar/salesforce-slack-starter-kit#readme",
+  "dependencies": {
+    "@slack/bolt": "^3.9.0"
+  }
 }

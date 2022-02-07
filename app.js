@@ -1,5 +1,8 @@
+/* eslint-disable no-console */
 // eslint-disable-next-line import/no-unresolved
-const { App } = require('@slack/bolt');
+import pkg from '@slack/bolt';
+
+const { App } = pkg;
 
 // Initializes your app with your bot token and signing secret
 const app = new App({
@@ -9,9 +12,8 @@ const app = new App({
 });
 
 // eslint-disable-next-line no-unused-expressions
-(async () => {
+async () => {
   // Start your app
   await app.start();
-  // eslint-disable-next-line no-console
   console.log('~ Bolt app is running!');
-});
+};
