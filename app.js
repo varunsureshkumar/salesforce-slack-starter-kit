@@ -15,5 +15,41 @@ const app = new App({
 (async () => {
   // Start your app
   await app.start();
-  console.log('~ Bolt app is running!');
+  console.log('⚡️ Bolt app is running!');
 })();
+
+app.shortcut('who_am_i', async({
+    shortcut,
+    ack,
+    client
+})) => {
+    try {
+        // Acknowledge shortcut request
+        await ack();
+        // Call the views.open method using one of the built-in WebClients
+        const result = await client.views.open({
+            trigger_id: shortcut.trigger_id,
+            view: {
+                type: "modal",
+                title: {
+                    type: "plain_text",
+                    text: "My Bolt App"
+                },
+                close: {
+                    type: "plain_text",
+                    text: "Close"
+                },
+                blocks: [{
+                    type: "section",
+                    text: {
+                        type: "mrkdwn",
+                        text: "Hello!"
+                    }
+                }]
+            }
+        });
+        console.log(result);
+    } catch(error) {
+        console.error(error);
+    }
+}
