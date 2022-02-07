@@ -1,6 +1,8 @@
 /* eslint-disable no-console */
 // eslint-disable-next-line import/no-unresolved
 import pkg from '@slack/bolt';
+
+const { slackMessage } = require('../helpers/slackBot');
 // import pkg2 from 'jsforce';
 
 const { App } = pkg;
@@ -18,6 +20,9 @@ const app = new App({
   // Start your app
   await app.start();
   console.log('⚡️ Bolt app is running!');
+  slackMessage(
+    'Bolt-SDK Slack App with shortcuts deployed!',
+  );
 })();
 
 app.shortcut('who_am_i', async ({ shortcut, ack, client }) => {
@@ -55,6 +60,7 @@ app.shortcut('who_am_i', async ({ shortcut, ack, client }) => {
         ],
       },
     });
+
     console.log(result);
   } catch (error) {
     console.error(error);
