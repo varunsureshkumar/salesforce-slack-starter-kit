@@ -12,8 +12,8 @@ const app = new App({
 });
 
 // eslint-disable-next-line no-unused-expressions
-async () => {
+(async () => {
   // Start your app
   await app.start();
   console.log('~ Bolt app is running!');
-};
+})();
