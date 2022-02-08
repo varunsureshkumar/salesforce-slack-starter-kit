@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 // helpers/slackBot.js
 // eslint-disable-next-line import/no-extraneous-dependencies
-import axios from 'axios';
+const axios = require('axios').default;
 // eslint-disable-next-line import/no-extraneous-dependencies
 require('dotenv').config();
 
@@ -16,7 +16,7 @@ const slackMessage = (msg) => {
   axios({
     method: 'POST',
     headers: { 'content-type': 'application/json' },
-    url: process.env.BLEBOT_SLACK_HOOK,
+    url: process.env.ELANYTICSBOT_SLACK_HOOK,
     data,
   }).then(
     (response) => {

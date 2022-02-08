@@ -6,7 +6,7 @@
 // import pkg2 from 'jsforce';
 
 const { App } = require('@slack/bolt');
-const { slackMessage } = require('../helpers/slackBot');
+// const { slackMessage } = require('../helpers/slackBot');
 
 // Initializes your app with your bot token and signing secret
 const app = new App({
@@ -20,9 +20,9 @@ const app = new App({
   // Start your app
   await app.start();
   console.log('⚡️ Bolt app is running!');
-  slackMessage(
+  /* slackMessage(
     'Bolt-SDK Slack App with shortcuts deployed!',
-  );
+  ); */
 })();
 
 app.shortcut('who_am_i', async ({ shortcut, ack, client }) => {
